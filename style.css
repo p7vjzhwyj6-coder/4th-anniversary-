@@ -1,0 +1,1443 @@
+/* =========================================================
+   COLOURS
+========================================================= */
+
+:root {
+
+    --sage-dark: #526653;
+
+    --sage: #9aaa8c;
+
+    --sage-light: #dfe7d9;
+
+    --sage-pale: #edf1e8;
+
+    --cream: #f8f4ea;
+
+    --paper: #fffdf7;
+
+    --pink: #d9878e;
+
+    --pink-light: #efb9bb;
+
+    --text: #29372d;
+
+    --muted: #718071;
+
+    --shadow:
+        rgba(62, 78, 62, 0.16);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background: var(--cream);
+
+    color: var(--text);
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   ENVELOPE SCREEN
+========================================================= */
+
+.envelope-screen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            var(--sage-light),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            #f0d8d4,
+            transparent 30%
+        ),
+
+        var(--cream);
+
+}
+
+
+.envelope-intro {
+
+    margin-bottom: 45px;
+
+    color: var(--sage-dark);
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   DECORATIVE TULIPS
+========================================================= */
+
+.decor-flower {
+
+    position: absolute;
+
+    font-size: 75px;
+
+    opacity: .8;
+
+}
+
+
+.flower-left {
+
+    left: 5%;
+
+    bottom: 8%;
+
+    transform: rotate(-15deg);
+
+}
+
+
+.flower-right {
+
+    right: 5%;
+
+    top: 10%;
+
+    transform: rotate(15deg);
+
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope-wrapper {
+
+    width: 320px;
+
+    height: 220px;
+
+    perspective: 1000px;
+
+}
+
+
+.envelope {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    cursor: pointer;
+
+}
+
+
+.envelope-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: var(--sage);
+
+    border-radius: 5px;
+
+    box-shadow:
+
+        0 30px 70px
+        rgba(58, 78, 61, .25);
+
+    z-index: 1;
+
+}
+
+
+/* LETTER INSIDE */
+
+.inside-letter {
+
+    position: absolute;
+
+    width: 82%;
+
+    height: 88%;
+
+    left: 9%;
+
+    top: 6%;
+
+    background: var(--paper);
+
+    color: var(--sage-dark);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    gap: 10px;
+
+    z-index: 2;
+
+    transition:
+
+        transform 1s
+        cubic-bezier(.77,0,.18,1);
+
+}
+
+
+.mini-heart {
+
+    color: var(--pink);
+
+    font-size: 25px;
+
+}
+
+
+/* ENVELOPE FRONT */
+
+.envelope-front {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 65%;
+
+    background: #82977e;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            50% 60%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    z-index: 4;
+
+}
+
+
+/* FLAP */
+
+.envelope-flap {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 62%;
+
+    background: #9aaa8c;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin: top;
+
+    transition:
+
+        transform
+        1s
+        cubic-bezier(.77,0,.18,1);
+
+    z-index: 5;
+
+}
+
+
+/* OPEN ENVELOPE */
+
+.envelope.open
+.envelope-flap {
+
+    transform: rotateX(180deg);
+
+    z-index: 0;
+
+}
+
+
+.envelope.open
+.inside-letter {
+
+    transform: translateY(-105px);
+
+    z-index: 3;
+
+}
+
+
+.envelope-screen h1 {
+
+    margin-top: 45px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 55px;
+
+    font-weight: 500;
+
+    color: var(--sage-dark);
+
+}
+
+
+.tap-text {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 8px;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.hidden {
+
+    display: none;
+
+}
+
+
+#mainContent {
+
+    animation: pageAppear 1.5s ease;
+
+}
+
+
+@keyframes pageAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   GENERAL LABEL
+========================================================= */
+
+.section-label {
+
+    color: var(--sage-dark);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    position: relative;
+
+}
+
+
+.tulip-row {
+
+    font-size: 42px;
+
+    margin-bottom: 40px;
+
+    opacity: .8;
+
+}
+
+
+.intro-section h1 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size:
+
+        clamp(
+            65px,
+            12vw,
+            135px
+        );
+
+    line-height: .85;
+
+    font-weight: 500;
+
+    color: var(--sage-dark);
+
+}
+
+
+.intro-text {
+
+    max-width: 520px;
+
+    margin-top: 45px;
+
+    color: var(--muted);
+
+    line-height: 1.9;
+
+    font-size: 15px;
+
+}
+
+
+.scroll-arrow {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    color: var(--sage-dark);
+
+    animation: bounce 2s infinite;
+
+}
+
+
+@keyframes bounce {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(8px);
+
+    }
+
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 120px 20px;
+
+}
+
+
+.paper {
+
+    max-width: 720px;
+
+    width: 100%;
+
+    background: var(--paper);
+
+    padding:
+
+        80px
+        clamp(30px, 8vw, 80px);
+
+    position: relative;
+
+    box-shadow:
+
+        0 25px 70px
+        var(--shadow);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 21px;
+
+    line-height: 1.8;
+
+}
+
+
+.paper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 15px;
+
+    border: 1px solid
+        rgba(82, 102, 83, .12);
+
+    pointer-events: none;
+
+}
+
+
+.paper-tulip {
+
+    position: absolute;
+
+    right: 35px;
+
+    top: 25px;
+
+    font-size: 38px;
+
+    opacity: .7;
+
+}
+
+
+.letter-date {
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: var(--muted);
+
+    margin-bottom: 45px;
+
+}
+
+
+.paper h2 {
+
+    font-size: 44px;
+
+    font-weight: 500;
+
+    color: var(--sage-dark);
+
+    margin-bottom: 30px;
+
+}
+
+
+.paper p {
+
+    margin-bottom: 25px;
+
+}
+
+
+.signature {
+
+    text-align: right;
+
+    margin-top: 50px;
+
+    color: var(--sage-dark);
+
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline-section {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 150px 30px;
+
+}
+
+
+.timeline-section h2 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 9vw, 90px);
+
+    font-weight: 500;
+
+    color: var(--sage-dark);
+
+    margin-bottom: 100px;
+
+}
+
+
+.timeline {
+
+    position: relative;
+
+    padding-left: 55px;
+
+}
+
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 10px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+
+        var(--sage);
+
+}
+
+
+.timeline-item {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 80px 1fr;
+
+    gap: 30px;
+
+    margin-bottom: 100px;
+
+}
+
+
+.timeline-number {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: var(--sage-light);
+
+    color: var(--sage-dark);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 12px;
+
+}
+
+
+.timeline-text span {
+
+    color: var(--sage-dark);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.timeline-text h3 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 38px;
+
+    font-weight: 500;
+
+    color: var(--sage-dark);
+
+    margin: 10px 0;
+
+}
+
+
+.timeline-text p {
+
+    max-width: 550px;
+
+    line-height: 1.8;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================================
+   MEMORY SECTION
+========================================================= */
+
+.memories-section {
+
+    min-height: 100vh;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 150px 30px;
+
+    text-align: center;
+
+}
+
+
+.memories-section h2 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 9vw, 90px);
+
+    font-weight: 500;
+
+    color: var(--sage-dark);
+
+}
+
+
+.memory-description {
+
+    color: var(--muted);
+
+    margin:
+
+        20px
+        auto
+        90px;
+
+}
+
+
+/* =========================================================
+   SCRAPBOOK
+========================================================= */
+
+.scrapbook {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(12, 1fr);
+
+    grid-auto-rows: 65px;
+
+    gap: 28px;
+
+    align-items: center;
+
+}
+
+
+.photo-frame {
+
+    background: #fffdf8;
+
+    padding: 12px 12px 20px;
+
+    box-shadow:
+
+        0 18px 40px
+        rgba(55, 70, 55, .15);
+
+    position: relative;
+
+    transition:
+
+        transform .4s ease,
+
+        box-shadow .4s ease;
+
+}
+
+
+.photo-frame:hover {
+
+    transform:
+
+        translateY(-10px)
+        rotate(0deg)
+        scale(1.03);
+
+    box-shadow:
+
+        0 28px 55px
+        rgba(55, 70, 55, .25);
+
+    z-index: 10;
+
+}
+
+
+.photo {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: var(--sage-light);
+
+}
+
+
+.photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform .5s ease;
+
+}
+
+
+.photo-frame:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+.photo-frame p {
+
+    padding-top: 12px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 19px;
+
+    color: var(--sage-dark);
+
+}
+
+
+/* =========================================================
+   INDIVIDUAL PHOTO POSITIONS
+========================================================= */
+
+.frame-one {
+
+    grid-column: 1 / 6;
+
+    grid-row: 1 / 6;
+
+    transform: rotate(-3deg);
+
+}
+
+
+.frame-one .photo {
+
+    height: 310px;
+
+}
+
+
+.frame-two {
+
+    grid-column: 7 / 13;
+
+    grid-row: 1 / 6;
+
+    transform: rotate(3deg);
+
+}
+
+
+.frame-two .photo {
+
+    height: 310px;
+
+}
+
+
+.frame-three {
+
+    grid-column: 3 / 8;
+
+    grid-row: 6 / 11;
+
+    transform: rotate(2deg);
+
+}
+
+
+.frame-three .photo {
+
+    height: 280px;
+
+}
+
+
+.frame-four {
+
+    grid-column: 8 / 13;
+
+    grid-row: 6 / 11;
+
+    transform: rotate(-3deg);
+
+}
+
+
+.frame-four .photo {
+
+    height: 280px;
+
+}
+
+
+.frame-five {
+
+    grid-column: 1 / 6;
+
+    grid-row: 11 / 16;
+
+    transform: rotate(3deg);
+
+}
+
+
+.frame-five .photo {
+
+    height: 280px;
+
+}
+
+
+.frame-six {
+
+    grid-column: 6 / 11;
+
+    grid-row: 11 / 16;
+
+    transform: rotate(-2deg);
+
+}
+
+
+.frame-six .photo {
+
+    height: 280px;
+
+}
+
+
+/* =========================================================
+   WASHI TAPE
+========================================================= */
+
+.tape {
+
+    position: absolute;
+
+    width: 85px;
+
+    height: 25px;
+
+    background:
+
+        rgba(177, 190, 149, .65);
+
+    top: -12px;
+
+    left: 50%;
+
+    transform:
+
+        translateX(-50%)
+        rotate(-3deg);
+
+    z-index: 5;
+
+}
+
+
+/* =========================================================
+   FLOWER DIVIDER
+========================================================= */
+
+.flower-divider {
+
+    margin-top: 120px;
+
+    color: var(--sage-dark);
+
+    font-size: 25px;
+
+    opacity: .7;
+
+}
+
+
+/* =========================================================
+   FINAL SECTION
+========================================================= */
+
+.final-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 50px 30px;
+
+}
+
+
+.final-flower {
+
+    font-size: 70px;
+
+    margin-bottom: 40px;
+
+}
+
+
+.final-section h2 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size:
+
+        clamp(
+            55px,
+            10vw,
+            105px
+        );
+
+    line-height: .9;
+
+    font-weight: 500;
+
+    color: var(--sage-dark);
+
+    margin-bottom: 55px;
+
+}
+
+
+#revealButton {
+
+    border: 1px solid var(--sage-dark);
+
+    background: transparent;
+
+    color: var(--sage-dark);
+
+    padding: 16px 35px;
+
+    border-radius: 50px;
+
+    font-family: "DM Sans", sans-serif;
+
+    cursor: pointer;
+
+    transition: .4s ease;
+
+}
+
+
+#revealButton:hover {
+
+    background: var(--sage-dark);
+
+    color: white;
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+.final-message {
+
+    max-width: 650px;
+
+    margin-top: 65px;
+
+    display: none;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 25px;
+
+    line-height: 1.8;
+
+    color: var(--sage-dark);
+
+}
+
+
+.final-message.show {
+
+    display: block;
+
+    animation:
+
+        finalAppear
+        1.5s ease;
+
+}
+
+
+@keyframes finalAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+.big-heart {
+
+    font-size: 70px;
+
+    color: var(--pink);
+
+    margin: 35px;
+
+}
+
+
+.final-message h3 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 45px;
+
+    font-weight: 500;
+
+}
+
+
+.final-signature {
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+
+    .decor-flower {
+
+        font-size: 50px;
+
+    }
+
+
+    .flower-left {
+
+        left: -5%;
+
+    }
+
+
+    .flower-right {
+
+        right: -5%;
+
+    }
+
+
+    .envelope-wrapper {
+
+        width: 280px;
+
+        height: 190px;
+
+    }
+
+
+    .envelope-screen h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .paper {
+
+        padding: 60px 30px;
+
+        font-size: 19px;
+
+    }
+
+
+    .paper h2 {
+
+        font-size: 38px;
+
+    }
+
+
+    .timeline {
+
+        padding-left: 35px;
+
+    }
+
+
+    .timeline-item {
+
+        grid-template-columns: 50px 1fr;
+
+        gap: 15px;
+
+    }
+
+
+    .timeline-text h3 {
+
+        font-size: 32px;
+
+    }
+
+
+    /* MOBILE SCRAPBOOK */
+
+    .scrapbook {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 50px;
+
+    }
+
+
+    .photo-frame {
+
+        width: 90%;
+
+        max-width: 350px;
+
+    }
+
+
+    .frame-one,
+    .frame-two,
+    .frame-three,
+    .frame-four,
+    .frame-five,
+    .frame-six {
+
+        transform: rotate(0deg);
+
+    }
+
+
+    .frame-one .photo,
+    .frame-two .photo,
+    .frame-three .photo,
+    .frame-four .photo,
+    .frame-five .photo,
+    .frame-six .photo {
+
+        height: 300px;
+
+    }
+
+
+    .final-message {
+
+        font-size: 22px;
+
+    }
+
+}
