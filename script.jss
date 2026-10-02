@@ -1,115 +1,42 @@
-/* =========================================================
-   ELEMENTS
-========================================================= */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var screen = document.getElementById('env-screen');
+  var env = document.getElementById('envelope');
+  var site = document.getElementById('site');
+  var opened = false;
 
-const envelope =
-    document.getElementById("envelope");
+  function observe() {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  }
 
-const envelopeScreen =
-    document.getElementById("envelopeScreen");
+  env.addEventListener('click', function () {
+    if (opened) return;
+    opened = true;
+    screen.classList.add('opened');
+    var t = reduce ? 100 : 1; // timing scale
+    setTimeout(function () { screen.classList.add('gone'); }, reduce ? 300 : 3400);
+    setTimeout(function () {
+      site.classList.add('show');
+      site.removeAttribute('aria-hidden');
+      document.body.classList.remove('locked');
+      window.scrollTo(0, 0);
+      observe();
+    }, reduce ? 400 : 3900);
+  });
 
-const mainContent =
-    document.getElementById("mainContent");
-
-const revealButton =
-    document.getElementById("revealButton");
-
-const finalMessage =
-    document.getElementById("finalMessage");
-
-
-let envelopeOpened = false;
-
-
-
-/* =========================================================
-   OPEN ENVELOPE
-========================================================= */
-
-envelope.addEventListener("click", function () {
-
-    if (envelopeOpened) return;
-
-    envelopeOpened = true;
-
-
-    /* Open flap */
-
-    envelope.classList.add("open");
-
-
-    /*
-       Give the envelope time to open
-       before changing screens.
-    */
-
-    setTimeout(() => {
-
-        envelopeScreen.style.transition =
-            "opacity 1.2s ease";
-
-        envelopeScreen.style.opacity = "0";
-
-    }, 1700);
-
-
-    setTimeout(() => {
-
-        envelopeScreen.style.display =
-            "none";
-
-        mainContent.classList.remove(
-            "hidden"
-        );
-
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "instant"
-
-        });
-
-    }, 2900);
-
-});
-
-
-
-/* =========================================================
-   FINAL MESSAGE
-========================================================= */
-
-revealButton.addEventListener(
-    "click",
-    function () {
-
-        finalMessage.classList.add(
-            "show"
-        );
-
-
-        revealButton.style.display =
-            "none";
-
-
-        /*
-           Scroll slightly so the newly
-           revealed message is visible.
-        */
-
-        setTimeout(() => {
-
-            finalMessage.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "center"
-
-            });
-
-        }, 200);
-
-    }
-);
+  document.getElementById('openFinal').addEventListener('click', function () {
+    var pre = document.getElementById('pre');
+    var msg = document.getElementById('msg');
+    pre.classList.add('out');
+    setTimeout(function () {
+      pre.hidden = true;
+      msg.hidden = false;
+      msg.classList.add('in');
+    }, reduce ? 50 : 800);
+  });
+})();
