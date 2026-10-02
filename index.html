@@ -1,657 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>For You ♡</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- EDIT HERE: page title -->
+<title>A little something for you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+<body class="locked">
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tulip" viewBox="0 0 60 120">
+    <path d="M30 118V50" stroke="#9AAA8C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M30 112C12 104 8 80 14 66C26 76 30 92 30 112Z" fill="#B7C3AA"/>
+    <path d="M30 108C46 100 52 82 46 70C36 78 31 92 30 108Z" fill="#9AAA8C"/>
+    <path d="M30 52C14 50 10 28 14 12C22 18 27 24 30 30C33 24 38 18 46 12C50 28 46 50 30 52Z" fill="#D9878E"/>
+    <path d="M30 52C22 46 20 30 30 14C40 30 38 46 30 52Z" fill="#EFB9BB" opacity=".9"/>
+  </symbol>
+  <symbol id="leaf" viewBox="0 0 40 20"><path d="M2 10C12 0 28 0 38 10C28 20 12 20 2 10Z" fill="#9AAA8C" opacity=".7"/><path d="M4 10H36" stroke="#DFE7D9" stroke-width="1"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 22"><path d="M12 21C-4 10 3-1 12 5C21-1 28 10 12 21Z" fill="currentColor"/></symbol>
+</svg>
 
-<body>
+<!-- ENVELOPE -->
+<div id="env-screen">
+  <svg class="deco t1" aria-hidden="true"><use href="#tulip"/></svg>
+  <svg class="deco t2" aria-hidden="true"><use href="#tulip"/></svg>
+  <!-- EDIT HERE -->
+  <p class="env-top">A little something for you</p>
+  <button class="envelope" id="envelope" aria-label="Open the envelope">
+    <span class="e-back"></span>
+    <span class="e-flap"></span>
+    <span class="e-letter"><svg aria-hidden="true"><use href="#tulip"/></svg></span>
+    <span class="e-front"></span>
+    <svg class="e-tulip" aria-hidden="true"><use href="#tulip"/></svg>
+  </button>
+  <!-- EDIT HERE -->
+  <p class="env-open">Open me</p>
+  <!-- EDIT HERE -->
+  <p class="env-tap">Tap the envelope</p>
+</div>
 
+<main id="site" aria-hidden="true">
 
-<!-- =========================================================
-     ENVELOPE
-========================================================= -->
+  <!-- SECTION 1: INTRODUCTION -->
+  <section class="intro full reveal">
+    <svg class="sway intro-tulip" aria-hidden="true"><use href="#tulip"/></svg>
+    <!-- EDIT HERE -->
+    <p class="label">Our story</p>
+    <!-- EDIT HERE -->
+    <h1>Four years of us.</h1>
+    <!-- EDIT HERE -->
+    <p class="lead">Write a short introduction here.</p>
+    <a class="scroll" href="#letter" aria-label="Scroll down"><span></span></a>
+  </section>
 
-<section class="envelope-screen" id="envelopeScreen">
+  <!-- SECTION 2: LETTER -->
+  <section id="letter" class="letter-sec reveal">
+    <article class="paper">
+      <svg class="sway paper-tulip" aria-hidden="true"><use href="#tulip"/></svg>
+      <!-- EDIT HERE -->
+      <p class="date">Write the date here</p>
+      <!-- EDIT HERE -->
+      <p class="dear">Dear ______,</p>
+      <!-- EDIT HERE: add or remove paragraphs freely; the paper grows -->
+      <p>Write your message here.</p>
+      <p>Write your message here.</p>
+      <p>Write your message here.</p>
+      <p class="with">With love,</p>
+      <!-- EDIT HERE -->
+      <p class="sign">Your name</p>
+    </article>
+  </section>
 
-    <div class="decor-flower flower-left">🌷</div>
-    <div class="decor-flower flower-right">🌷</div>
+  <!-- SECTION 3: SCRAPBOOK -->
+  <section class="scrap reveal">
+    <!-- EDIT HERE -->
+    <h2>Little pieces of us.</h2>
+    <!-- EDIT HERE -->
+    <p class="lead">Write a short description of these photos here.</p>
 
-    <div class="envelope-intro">
+    <div class="board">
+      <svg class="deco d-tulip a" aria-hidden="true"><use href="#tulip"/></svg>
+      <svg class="deco d-tulip b" aria-hidden="true"><use href="#tulip"/></svg>
+      <svg class="deco d-leaf c" aria-hidden="true"><use href="#leaf"/></svg>
+      <svg class="deco d-leaf d" aria-hidden="true"><use href="#leaf"/></svg>
+      <!-- EDIT HERE -->
+      <p class="note n1">a small note</p>
+      <!-- EDIT HERE -->
+      <p class="note n2">another note</p>
+      <span class="scrap-bit s1"></span><span class="scrap-bit s2"></span>
+      <svg class="deco d-heart" aria-hidden="true"><use href="#heart"/></svg>
 
+      <figure class="pic polaroid p1" style="--r:-3deg">
+        <div class="ph"><img src="photos/photo1.jpg" alt="Photo 1" loading="lazy"></div>
         <!-- EDIT HERE -->
-        <p>Paruuu, ITS BEEN 4 YEARSSSSS!!!!!!
-I can’t even believe it’s been 4 years since we have started dating, can you believe we started dating at 16 and now we are 20!! All these 4 years we have been through a lot.
-There was moments where we laughed like crazy, where we smiled just looking at each other, where we cried, where we were silent, the list goes on. We have been through everything during these 4 years. It was challenging for both of us these 4 years, but throughout all of it we have been there for each other. Throughout all of it we have been in love. I am forever grateful for all these years you have been together with me, you have made me happy, you have made these years special for me and you have made me eagerly waiting for the day we will be celebrating our anniversary together.
-
-Paru, i know its been hard for you lately and i hope everything turns out good for you and i want you to know that i will always be there for you, i’ll always be a shoulder for you to rely on and to cry on and i want you to know that i will love you more than anything no matter what. I am sorry for all the times i have made you sad,angry and for all the times i have made it hard for you.I hope the coming years will be kind on you and on us and i hope we will get through everything again and again.
-
-I know i don’t believe in God like others but i really think i think you are my Oru deivam thantha poove-
-Paru every-time you feel like you are not enough,every time you feel like you cannot do it anymore remember i would give my life for you and there’s someone here who would support you through everything and i hope i can always be there for you.
-
-I still remember the day we started dating, i still remember how happy i was knowing that you love me back. I was literally in cloud 9, i was the most happiest person in the world. If i could go back to the beginning, i’d still choose you. Thank you paru for all these years of happiness, excitement and for always being there for me, thank you for always being my number one supporter and for always believing in me. 
-
-I love you from the bottom of my heart, I love you more than anything else in this world!!!!!!! I love you to infinity and beyond, I love you throughout the eternity, I love you till i perish from this world and when my time comes to leave this earth,
-I hope you will hold me until the very end so that i will carry the warmth of your touch with me for always.</p>
-
-    </div>
-
-
-    <div class="envelope-wrapper">
-
-        <div class="envelope" id="envelope">
-
-            <div class="envelope-back"></div>
-
-            <div class="inside-letter">
-
-                <!-- EDIT HERE -->
-                <span>For You</span>
-
-                <span class="mini-heart">♡</span>
-
-            </div>
-
-            <div class="envelope-front"></div>
-
-            <div class="envelope-flap"></div>
-
-        </div>
-
-    </div>
-
-
-    <!-- EDIT HERE -->
-
-    <h1>Open me</h1>
-
-    <span class="tap-text">
-        Tap the envelope
-    </span>
-
-
-</section>
-
-
-
-<!-- =========================================================
-     MAIN WEBSITE
-========================================================= -->
-
-<main id="mainContent" class="hidden">
-
-
-<!-- =========================================================
-     INTRO
-========================================================= -->
-
-<section class="intro-section">
-
-    <div class="tulip-row">
-        🌷　🌷　🌷
-    </div>
-
-
-    <p class="section-label">
+        <figcaption>Write a caption here</figcaption>
+      </figure>
+      <figure class="pic paperframe p2" style="--r:2.5deg">
+        <div class="ph"><img src="photos/photo2.jpg" alt="Photo 2" loading="lazy"></div>
         <!-- EDIT HERE -->
-        OUR STORY
-    </p>
-
-
-    <!-- EDIT HERE -->
-
-    <h1>
-        Four years<br>
-        of us.
-    </h1>
-
-
-    <!-- EDIT HERE -->
-
-    <p class="intro-text">
-
-        Your introductory message goes here.
-        You can write a short paragraph about
-        your four years together.
-
-    </p>
-
-
-    <div class="scroll-arrow">
-        ↓
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     LETTER
-========================================================= -->
-
-<section class="letter-section">
-
-    <div class="paper">
-
-
-        <div class="paper-tulip">
-            🌷
-        </div>
-
-
+        <figcaption>Write a caption here</figcaption>
+      </figure>
+      <figure class="pic polaroid p3" style="--r:-2deg">
+        <div class="ph"><img src="photos/photo3.jpg" alt="Photo 3" loading="lazy"></div>
         <!-- EDIT HERE -->
-
-        <p class="letter-date">
-            October 2, 2026
-        </p>
-
-
+        <figcaption>Write a caption here</figcaption>
+      </figure>
+      <figure class="pic polaroid p4" style="--r:3.5deg">
+        <div class="ph"><img src="photos/photo4.jpg" alt="Photo 4" loading="lazy"></div>
         <!-- EDIT HERE -->
-
-        <h2>
-            Dear ______,
-        </h2>
-
-
-        <!-- EDIT YOUR LETTER BELOW -->
-
-
-        <p>
-            Write your first paragraph here.
-        </p>
-
-
-        <p>
-            Write your second paragraph here.
-        </p>
-
-
-        <p>
-            Write your third paragraph here.
-        </p>
-
-
-        <p>
-            You can add as many paragraphs as you want.
-            The paper will automatically expand.
-        </p>
-
-
-        <p>
-            Write your final paragraph here.
-        </p>
-
-
+        <figcaption>Write a caption here</figcaption>
+      </figure>
+      <figure class="pic paperframe p5" style="--r:-2.5deg">
+        <div class="ph"><img src="photos/photo5.jpg" alt="Photo 5" loading="lazy"></div>
         <!-- EDIT HERE -->
-
-        <p class="signature">
-
-            With love,<br>
-
-            ______ ♡
-
-        </p>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FOUR YEARS / TIMELINE
-========================================================= -->
-
-<section class="timeline-section">
-
-
-    <p class="section-label">
-        FOUR CHAPTERS
-    </p>
-
-
-    <!-- EDIT HERE -->
-
-    <h2>
-        Our four years.
-    </h2>
-
-
-    <div class="timeline">
-
-
-        <!-- YEAR 1 -->
-
-        <div class="timeline-item">
-
-            <div class="timeline-number">
-                01
-            </div>
-
-            <div class="timeline-text">
-
-                <!-- EDIT HERE -->
-
-                <span>
-                    YEAR ONE
-                </span>
-
-                <h3>
-                    The beginning
-                </h3>
-
-                <p>
-                    Write about your first year together.
-                    Add your favourite memories,
-                    moments or stories here.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- YEAR 2 -->
-
-        <div class="timeline-item">
-
-            <div class="timeline-number">
-                02
-            </div>
-
-            <div class="timeline-text">
-
-                <!-- EDIT HERE -->
-
-                <span>
-                    YEAR TWO
-                </span>
-
-                <h3>
-                    Another chapter
-                </h3>
-
-                <p>
-                    Write about your second year together.
-                    Add anything you want her to remember.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- YEAR 3 -->
-
-        <div class="timeline-item">
-
-            <div class="timeline-number">
-                03
-            </div>
-
-            <div class="timeline-text">
-
-                <!-- EDIT HERE -->
-
-                <span>
-                    YEAR THREE
-                </span>
-
-                <h3>
-                    More memories
-                </h3>
-
-                <p>
-                    Write your memories from the third year here.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- YEAR 4 -->
-
-        <div class="timeline-item">
-
-            <div class="timeline-number">
-                04
-            </div>
-
-            <div class="timeline-text">
-
-                <!-- EDIT HERE -->
-
-                <span>
-                    YEAR FOUR
-                </span>
-
-                <h3>
-                    Here we are
-                </h3>
-
-                <p>
-                    Write about your fourth year
-                    and what it means to you.
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     SCRAPBOOK PHOTOS
-========================================================= -->
-
-<section class="memories-section">
-
-
-    <p class="section-label">
-        OUR MEMORIES
-    </p>
-
-
-    <!-- EDIT HERE -->
-
-    <h2>
-        Little pieces of us.
-    </h2>
-
-
-    <!-- EDIT HERE -->
-
-    <p class="memory-description">
-        Some moments I never want to forget.
-    </p>
-
-
-    <div class="scrapbook">
-
-
-        <!-- PHOTO 1 -->
-
-        <div class="photo-frame frame-one">
-
-            <div class="tape"></div>
-
-            <div class="photo">
-
-                <img
-                    src="photos/photo1.jpg"
-                    alt="Our memory"
-                >
-
-            </div>
-
-            <!-- EDIT HERE -->
-
-            <p>
-                One of my favourite memories ♡
-            </p>
-
-        </div>
-
-
-
-        <!-- PHOTO 2 -->
-
-        <div class="photo-frame frame-two">
-
-            <div class="photo">
-
-                <img
-                    src="photos/photo2.jpg"
-                    alt="Our memory"
-                >
-
-            </div>
-
-            <!-- EDIT HERE -->
-
-            <p>
-                This moment.
-            </p>
-
-        </div>
-
-
-
-        <!-- PHOTO 3 -->
-
-        <div class="photo-frame frame-three">
-
-            <div class="tape"></div>
-
-            <div class="photo">
-
-                <img
-                    src="photos/photo3.jpg"
-                    alt="Our memory"
-                >
-
-            </div>
-
-            <!-- EDIT HERE -->
-
-            <p>
-                Always worth remembering.
-            </p>
-
-        </div>
-
-
-
-        <!-- PHOTO 4 -->
-
-        <div class="photo-frame frame-four">
-
-            <div class="photo">
-
-                <img
-                    src="photos/photo4.jpg"
-                    alt="Our memory"
-                >
-
-            </div>
-
-            <!-- EDIT HERE -->
-
-            <p>
-                You & me.
-            </p>
-
-        </div>
-
-
-
-        <!-- PHOTO 5 -->
-
-        <div class="photo-frame frame-five">
-
-            <div class="tape"></div>
-
-            <div class="photo">
-
-                <img
-                    src="photos/photo5.jpg"
-                    alt="Our memory"
-                >
-
-            </div>
-
-            <!-- EDIT HERE -->
-
-            <p>
-                Another little memory.
-            </p>
-
-        </div>
-
-
-
-        <!-- PHOTO 6 -->
-
-        <div class="photo-frame frame-six">
-
-            <div class="photo">
-
-                <img
-                    src="photos/photo6.jpg"
-                    alt="Our memory"
-                >
-
-            </div>
-
-            <!-- EDIT HERE -->
-
-            <p>
-                One more for the album ♡
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="flower-divider">
-        🌿　🌷　🌿
-    </div>
-
-
-</section>
-
-
-
-<!-- =========================================================
-     FINAL MESSAGE
-========================================================= -->
-
-<section class="final-section">
-
-
-    <div class="final-flower">
-        🌷
-    </div>
-
-
-    <p class="section-label">
-        ONE LAST THING
-    </p>
-
-
-    <!-- EDIT HERE -->
-
-    <h2>
-        I have one more<br>
-        thing to say.
-    </h2>
-
-
-    <button id="revealButton">
-        Open ♡
-    </button>
-
-
-    <div
-        class="final-message"
-        id="finalMessage"
-    >
-
-
-        <!-- =================================================
-             EDIT YOUR FINAL MESSAGE
-        ================================================= -->
-
-
-        <p>
-            Write your final message here.
-        </p>
-
-
-        <p>
-            This can be the most personal part
-            of the entire website.
-        </p>
-
-
-        <p>
-            Say whatever you want her to remember.
-        </p>
-
-
-        <div class="big-heart">
-            ♡
-        </div>
-
-
+        <figcaption>Write a caption here</figcaption>
+      </figure>
+      <figure class="pic polaroid p6" style="--r:2deg">
+        <div class="ph"><img src="photos/photo6.jpg" alt="Photo 6" loading="lazy"></div>
         <!-- EDIT HERE -->
-
-        <h3>
-            Happy 4th Anniversary
-        </h3>
-
-
-        <!-- EDIT HERE -->
-
-        <p class="final-signature">
-            — Your name
-        </p>
-
-
+        <figcaption>Write a caption here</figcaption>
+      </figure>
     </div>
 
+    <div class="divider" aria-hidden="true">
+      <svg><use href="#tulip"/></svg><svg class="mid"><use href="#tulip"/></svg><svg><use href="#tulip"/></svg>
+    </div>
+  </section>
 
-</section>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <!-- EDIT HERE -->
-
-    Made with love ♡
-
-</footer>
-
-
+  <!-- SECTION 4: FINAL MESSAGE -->
+  <section class="final full reveal">
+    <svg class="sway final-tulip" aria-hidden="true"><use href="#tulip"/></svg>
+    <div id="pre">
+      <!-- EDIT HERE -->
+      <p class="label">One last thing</p>
+      <!-- EDIT HERE -->
+      <h2>I have one more thing to say.</h2>
+      <button id="openFinal" class="btn">Open ♡</button>
+    </div>
+    <div id="msg" hidden>
+      <svg class="big-heart" aria-hidden="true"><use href="#heart"/></svg>
+      <!-- EDIT HERE -->
+      <h2>Happy 4th Anniversary</h2>
+      <!-- EDIT HERE -->
+      <p class="final-text">Write your final message here.</p>
+      <!-- EDIT HERE -->
+      <p class="sign">— Your name</p>
+    </div>
+  </section>
 </main>
 
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
 <script src="script.js"></script>
-
 </body>
-
 </html>
